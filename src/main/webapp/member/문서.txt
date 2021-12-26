@@ -1,0 +1,40 @@
+회원관리 시스템
+
+use ch20;
+
+table : member
+--------------------------
+back-end
+--------------------------
+src/member 복붙
+      (member.MemberDTO.java)
+      (member.MemberDAO.java)
+
+--------------------------
+CommandPro.properties
+--------------------------
+/member/main.do=member.action.MainAction
+/member/inputForm.do=member.action.InputFormAction
+      
+WebContent
+  member 폴더
+    WEB-INF
+      CommandPro.properties
+                추가
+                
+--------------------------
+Action 작업, CommandAction 인터페이스 상속 받아서 작성
+--------------------------
+
+/member/main.do=member.action.MainAction
+/member/inputForm.do=member.action.InputFormAction
+/member/inputPro.do=member.action.InputProAction
+/member/loginPro.do=member.action.LoginProAction
+/member/logOut.do=member.action.LogOutAction
+
+뷰
+main.jsp
+inputForm.jsp  // confirmID.jsp(아이디중복체크)
+inputPro.jsp
+
+loginPro.jsp

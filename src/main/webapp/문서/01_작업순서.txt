@@ -1,0 +1,68 @@
+새프로젝트
+09_MVC
+
+MVC : Model(DB작업) View(JSP) Controller(제어)
+
+1. META-INF
+     context.xml 커넥션 풀 사용
+     
+2. DB 작업(이전 것을 사용)
+    DB명 : ch20 사용
+         테이블 이름 : board 사용
+         
+3. Model : 모델부분(이전 것을 사용)
+    src/boardmysql 복사
+           BoardDTO.java
+           BoardDAO.java
+==========  직접 작업  ======================
+■ 4. Action 작성
+  src/action.CommandAction.java 인터페이스
+  src/action.ListAction.java 클래스
+  
+CommandAction 인터페이스를 상속 받아서 만든다
+
+ListAction.java  리스트 ----- jsp 로직부분을 Action이 담당
+WriteFormAction.java --글쓰기폼
+WriteProAction.java ---글쓰기 처리(DAO메서드 호출 )
+
+ContentAction.java  ---글내용보기 처리 (DAO메서드 호출 )
+UpdateFormAction.java --글 수정폼
+UpdateProAction.java   --글 수정 처리(DAO메서드 호출)
+
+DeleteFormAction.java --글 삭제 폼
+DeleteProAction.java   --글 삭제 처리 ( DAO메서드 호출)
+
+■ 5. WebContent
+       WEB-INF
+         CommandPro.properties
+         
+#http://localhost:9001/컨택스이름/중간이름/list.do
+#http://localhost:9001/컨택스이름/board/list.do
+
+/board/list.do=action.ListAction
+/board/writeForm.do=action.WriteFormAction
+/board/writePro.do=action.WriteProAction
+
+■ 6. WebContent/board 폴더
+                   *.jsp
+                   header.jsp
+                   
+                   list.jsp
+                   writeForm.jsp
+                   writePro.jsp
+                   
+                   content.jsp
+                   
+                   updateForm.jsp
+                   updatePro.jsp
+                   
+                   deleteForm.jsp
+                   deletePro.jsp
+                   
+■ 7. src/controller.ControllerAction.java
+
+■ 8. web.xml에 컨트롤러 등록
+
+======= 할 작업 ==========
+  해당 Action
+  해당 view
